@@ -6,7 +6,7 @@ export default function SelectInput(props: ISelectProps) {
         <Container>
             <select>
                 {props.options.map(option => (
-                    <option value={option.value} >{option.label}</option>
+                    <option key={option.value} value={option.value} >{option.label}</option>
                 ))}
             </select>
         </Container>
