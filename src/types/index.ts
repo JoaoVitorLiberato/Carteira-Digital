@@ -27,7 +27,15 @@ export interface IHistoryFinanceCard{
     amount: string; 
 }
 
-
 export interface ITagProps{
     color: string;
+}
+
+export interface IData{
+    id: string | number;
+    description: string;
+    amountFormatted: string;
+    frequency: string;
+    dateFormatted: string;
+    tagColor: string;
 }
