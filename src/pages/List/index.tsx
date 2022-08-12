@@ -8,62 +8,94 @@ import { Container, Content, Filters } from "./styled";
 
 import gains from "../../data/gains";
 import expenses from "../../data/expenses";
+import formartCurrency from "../../utils/formatCurrency";
+import formatDate from "../../utils/formatDate";
+import {listOfMonths} from "../../utils/months";
 import { IData } from "../../types";
 
 
 export default function List() {
     const [data, setData] = useState<IData[]>([]);
+    const [monthSelected, setMonthSelected] = useState<string>(String(new Date().getMonth() + 1));
+    const [yearSelected, setYearSelected] = useState<string>(String(new Date().getFullYear()));
 
     const params = useParams();
     const content = useMemo(() => {
         return params.type === 'entry-balance' ? {
-
             title: 'Entradas',
             lineColor: '#F7931B',
-
         } : {
-
             title: 'Saídas',
             lineColor: '#E44C4E',
-
         };
-
     }, [params.type]);
 
     const dataList = useMemo(() => {
-        return params.type === 'entry-balance' ? gains : expenses
+        return params.type === 'entry-balance' ? gains : expenses;
     }, [params.type]);
 
-    const months = [
-        { value: 7, label: 'Julho' },
-        { value: 8, label: 'Agosto' },
-        { value: 9, label: 'Setembro' },
-    ];
-    const years = [
-        { value: 2020, label: 2020 },
-        { value: 2019, label: 2019 },
-        { value: 2018, label: 2018 },
-    ];
-
-    useEffect(() => {
-        const response = dataList.map(item => {
+    const months = useMemo(() => {
+        
+        return listOfMonths.map((month, index) => {
             return {
-                id: Math.random() * data.length,
-                description: item.description,
-                amountFormatted: item.amount,
-                frequency: item.frequency,
-                dateFormatted: item.date,
-                tagColor: item.frequency === 'recorrente' ? '#4E41F0': '#E44C4E',
+                value: index + 1,
+                label: month,
             }
         })
-        setData(response)
-    }, []);
+    
+    }, [])
+
+    const years = useMemo(() => {
+        let uniqueyears: number[] = []
+
+        dataList.forEach(item => {
+            const date = new Date(item.date);
+            const year = date.getFullYear();
+
+            if (!uniqueyears.includes(year)) {
+                uniqueyears.push(year)
+            }
+        });
+
+        return uniqueyears.map(year => {
+            return {
+                value: year,
+                label: year,
+            }
+        })
+            ;
+    }, [dataList])
+
+    useEffect(() => {
+
+        const filteredDate = dataList.filter(item => {
+            const date = new Date(item.date);
+            const month = String(date.getMonth() + 1);
+            const year = String(date.getFullYear());
+
+            return month === monthSelected && year === yearSelected;
+        });
+
+        const formattedData = filteredDate.map(item => {
+            return {
+                id: String(new Date().getTime()) + item.amount,
+                description: item.description,
+                amountFormatted: formartCurrency(Number(item.amount)),
+                frequency: item.frequency,
+                dateFormatted: formatDate(item.date),
+                tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E',
+            }
+        })
+
+        setData(formattedData)
+
+    }, [dataList, monthSelected, yearSelected, data.length]);
 
     return (
         <Container>
             <ContentHeader title={content.title} lineColor={content.lineColor}>
-                <SelectInput options={months} />
-                <SelectInput options={years} />
+                <SelectInput options={months} onChange={(e) => setMonthSelected(e.target.value)} defaultValue={monthSelected} />
+                <SelectInput options={years} onChange={(e) => setYearSelected(e.target.value)} defaultValue={yearSelected} />
             </ContentHeader>
 
             <Filters>
@@ -83,11 +115,11 @@ export default function List() {
                 {
                     data.map(item => (
                         <HistoryFinanceCard
-                        key={item.id}
+                            key={item.id}
                             tagColor={item.tagColor}
                             title={item.description}
-                            subTitle= {item.dateFormatted}
-                            amount= {item.amountFormatted}
+                            subTitle={item.dateFormatted}
+                            amount={item.amountFormatted}
                         />
                     ))}
             </Content>

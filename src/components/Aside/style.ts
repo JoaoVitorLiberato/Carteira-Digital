@@ -28,22 +28,22 @@ export const MenuContainer = styled.nav`
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-
-    .MenuItemLink{
-        color: ${props => props.theme.colors.info};
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        transition: opacity .3s;
-        margin: 7px 0;
-
-
-        &:hover{
-            opacity: .7;
-        }
-        > svg{
-            font-size: 18px;
-            margin-right: 5px;
-        }
-    }
 `;
+
+export const MenuItemLink = styled.a`
+   color: ${props => props.theme.colors.info};
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   transition: opacity .3s;
+   margin: 7px 0;
+
+   &:hover{
+       opacity: .7;
+   }
+   
+   > svg{
+       font-size: 18px;
+       margin-right: 5px;
+    }
+`

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AsideStyled, Header, LogoImg, MenuContainer, Title } from "./style";
+import { AsideStyled, Header, LogoImg, MenuContainer, Title, MenuItemLink } from "./style";
 import Logo from '../../assets/logo.svg'
 import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp } from 'react-icons/md'
 
@@ -12,22 +12,22 @@ export default function Aside() {
             </Header>
 
             <MenuContainer>
-                <Link to='/dashboard' className="MenuItemLink">
-                    <MdDashboard/>
+                <MenuItemLink href='/dashboard'>
+                    <MdDashboard />
                     Dasboard
-                </Link>
-                <Link to='/list/entry-balance' className="MenuItemLink">
-                    <MdArrowUpward/>
+                </MenuItemLink>
+                <MenuItemLink href='/list/entry-balance'>
+                    <MdArrowUpward />
                     Entradas
-                </Link>
-                <Link to='/list/exit-balance' className="MenuItemLink">
-                    <MdArrowDownward/>
+                </MenuItemLink>
+                <MenuItemLink href='/list/exit-balance'>
+                    <MdArrowDownward />
                     Saídas
-                </Link>
-                <Link to='/exit' className="MenuItemLink">
+                </MenuItemLink>
+                <MenuItemLink href='/exit'>
                     <MdExitToApp/>
                     Sair
-                </Link>
+                </MenuItemLink>
             </MenuContainer>
         </AsideStyled>
     );
