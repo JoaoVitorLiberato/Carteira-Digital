@@ -40,3 +40,22 @@ export interface IData{
     dateFormatted: string;
     tagColor: string;
 }
+
+export interface IWalletBoxProps {
+    title: string;
+    amount: number;
+    footerLabel: string;
+    icon: 'Dolar' | 'ArrowUp' | 'ArrowDown' ;
+    color: string;
+}
+
+export interface IcontainerPropsStyledWallet{
+    color: string;
+}
+
+export interface IMessageBox{
+    title: string;
+    descripion: string;
+    footerText: string;
+    icon: string;
+}
