@@ -13,3 +13,5 @@ export const ContentMessageBox = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const ContentHistoryBox = styled.div``;

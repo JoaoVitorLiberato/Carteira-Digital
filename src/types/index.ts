@@ -33,6 +33,7 @@ export interface ITagProps{
 }
 
 export interface IData{
+    pageData?: string | number | Date;
     id: string | number;
     description: string;
     amountFormatted: string;
@@ -58,4 +59,28 @@ export interface IMessageBox{
     descripion: string;
     footerText: string;
     icon: string;
+}
+
+
+export interface ILegendProps{
+   color: string;
+}
+
+export interface IPieChartProps{
+    data: {
+        name: string,
+        value: number,
+        percent: number
+        color: string,
+    }[];
+}
+
+export interface IHistoryProps{
+    data: {
+        month: string,
+        amountEntry: number,
+        amountOutput: number
+    }[],
+    lineColorAmountEntry: string,
+    lineColorAmountOutput: string
 }

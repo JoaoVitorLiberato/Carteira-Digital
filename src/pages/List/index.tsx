@@ -38,7 +38,7 @@ export default function List() {
                 data: expenses,
             }
 
-    }, [params.type])
+    }, [params, gains, expenses])
 
     const months = useMemo(() => {
 
@@ -114,7 +114,7 @@ export default function List() {
 
         const formattedData = filteredDate.map(item => {
             return {
-                id: item.description.length * 10000,
+                id: Number(item.amount) * 10000,
                 description: item.description,
                 amountFormatted: formartCurrency(Number(item.amount)),
                 frequency: item.frequency,
