@@ -10,7 +10,7 @@ export const Container = styled.div<IToogleMediaProps>`
     position: relative;
 
     @media(max-width: 600px) {
-        width: 170px;
+        width: 200px;
         padding-left: 20px;
         position: fixed;
         z-index: 2;
@@ -103,7 +103,7 @@ export const ThemeToogleFooter = styled.footer<IThemeToogleFooter>`
     position: absolute;
     bottom: 30px;
 
-    @media(max-width: 470px){
+    @media(max-width: 480px){
       display: ${props => props.menuIsOpen ? 'flex' : 'none'};
     }
 

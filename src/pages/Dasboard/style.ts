@@ -8,7 +8,7 @@ export const ContentWalletBox = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media(max-width: 420px){
+    @media(max-width: 480px){
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -20,7 +20,7 @@ export const ContentMessageBox = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media(max-width: 420px){
+    @media(max-width: 480px){
         display: flex;
         flex-direction: column;
         justify-content: center;

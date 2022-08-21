@@ -33,7 +33,7 @@ export const Container = styled.div< IcontainerPropsStyledWallet>`
         bottom: 10px;
     }
 
-     @media(max-width: 420px){
+     @media(max-width: 480px){
         width: 100%;
 
     }
