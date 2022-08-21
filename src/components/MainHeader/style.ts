@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ToggleComponent from "../Toggle";
 
 export const HeaderStyled = styled.div`
     grid-area: MH;
@@ -21,4 +22,7 @@ export const Profile = styled.div`
 export const Welcome = styled.h3`
 margin:0;`;
 
-export const Username= styled.span``;
+export const Username = styled.span``;
+
+
+

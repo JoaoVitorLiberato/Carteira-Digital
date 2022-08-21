@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { ILegendProps } from "../../types";
 
+
 const animate = keyframes`
     0%{
         transform: translateX(100px);
@@ -15,48 +16,33 @@ const animate = keyframes`
     }
 `;
 
-export const Container = styled.aside`
-    width: 48%;
-    height: 260px;
-    margin: 10px;
-    background-color: ${props => props.theme.colors.tertiary};
-    color: ${props => props.theme.colors.white};
-    border-radius: 7px;
+export const Container = styled.div`
+  width: 48%;
+  min-height: 260px;
+  margin: 10px 0;
+  background-color: ${props => props.theme.colors.tertiary};
+  color: ${props => props.theme.colors.white};
+  border-radius: 7px;
 
+  display: flex;
+
+  @media(max-width: 1000px){
     display: flex;
+    flex-direction: column;
     flex: 1;
-    justify-content: center;
-
-    @media(max-width: 770px){
-        width: 100%;
-        display: flex;
-        flex: 1;
-
-        animation: ${animate} .5s;
-
-    }
-
-    animation: ${animate} .5s;
+    width: 100%;
+    height: 300px;
+  }
+  animation: ${animate} .5s;
 `;
 
-export const SideLeft = styled.div`
+export const SideLeft = styled.aside`
     padding: 30px 20px;
 
     > h2{
-        margin-bottom: 20px;
+        padding-left: 16px;
+        margin-bottom: 10px;
     }
-
-    @media(max-width: 1345px){
-        padding: 0 15px 5px;
-        margin-bottom: 7px;
-
-        > h2 {
-            margin-top: 15px;
-            margin-bottom: 7px;
-        }
-    }
-
-    
 `;
 
 export const LegendContainer = styled.ul`
@@ -77,12 +63,18 @@ export const LegendContainer = styled.ul`
     ::-webkit-scrollbar-track{
         background-color: ${props => props.theme.colors.tertiary};
     }
+
+    @media(max-width: 1000px){
+        display: flex;
+   
+     }
 `;
 
 export const Legend = styled.li<ILegendProps>`
     display: flex;
     align-items: center;
     margin-bottom: 7px;
+    padding-left: 16px;
 
     > div {
         background-color: ${props => props.color};
@@ -100,8 +92,9 @@ export const Legend = styled.li<ILegendProps>`
 `;
 
 export const SideRight = styled.main`
-    display: flex;
     flex: 1;
+    min-height: 150px;
+    display: flex;
     justify-content: center;
-
+    padding-top: 35px;
 `;

@@ -33,4 +33,27 @@ export const Container = styled.div< IcontainerPropsStyledWallet>`
         bottom: 10px;
     }
 
+     @media(max-width: 420px){
+        width: 100%;
+
+    }
+
+    @media(max-width: 770px) {
+        > span{
+            font-size: 14px;
+        }
+
+        > h1{
+            word-wrap: break-word;
+            font-size: 22px;
+
+            > strong{
+
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+    } 
+
+
 `;

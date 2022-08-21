@@ -1,18 +1,19 @@
+import { IToogleProps } from "../../types";
 import { Container, ToggleLabel, ToggleSelector } from "./styled";
 
 
 
-export default function Toggle(){
+export default function Toggle(props: IToogleProps){
     return(
         <Container>
-            <ToggleLabel>Light</ToggleLabel>
+            <ToggleLabel>{props.labelLeft}</ToggleLabel>
             <ToggleSelector
-                checked
+                checked={props.checked}
                 uncheckedIcon={false}
                 checkedIcon={false}
-                onChange={() => console.log('Mudou novamente.') }
+                onChange={props.onChange }
             />
-            <ToggleLabel>Dark</ToggleLabel>
+            <ToggleLabel>{props.labelRight}</ToggleLabel>
         </Container>
     
     );

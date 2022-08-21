@@ -22,12 +22,13 @@ export default function WalletBox(props: IWalletBoxProps) {
         <Container color={props.color}>
             <span>{props.title}</span>
             <h1>
+              
                 <CountUp
                     end={ props.amount }
-                    prefix={"R$ "}
                     separator="."
                     decimal=","
                     decimals={2}
+                    prefix="R$ "
                     preserveValue={true} 
                 />
             </h1>

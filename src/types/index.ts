@@ -84,3 +84,51 @@ export interface IHistoryProps{
     lineColorAmountEntry: string,
     lineColorAmountOutput: string
 }
+
+export interface IbarChatProps {
+    title: string;
+    data: {
+        name: string;
+        amount: number;
+        percent: number;
+        color: string;
+    }[];
+}
+
+export interface ITheme{
+    title: string;
+    
+    colors: {
+        primary: string;
+        secondary: string;
+        tertiary: string;
+
+        white: string;
+        black: string;
+        gray: string;
+
+        success: string;
+        info: string;
+        warning: string;
+    },
+}
+
+export interface IThemeContext {
+    toggleTheme: () => void;
+    theme: ITheme;
+}
+
+export interface IToogleProps{
+    labelLeft: string;
+    labelRight: string;
+    checked: boolean;
+    onChange: () => void; 
+} 
+
+export interface IToogleMediaProps{
+    menuIsOpen: boolean;
+}
+
+export interface IThemeToogleFooter{
+    menuIsOpen: boolean;
+}

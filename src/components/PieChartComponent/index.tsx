@@ -17,7 +17,6 @@ export default function PieChartComponent(props: IPieChartProps) {
                 <h2>Relação</h2>
                 <LegendContainer>
                     {
-
                         props.data.map(indicator => (
                             <>
                                 <Legend key={indicator.name} color={indicator.color}>
@@ -27,7 +26,6 @@ export default function PieChartComponent(props: IPieChartProps) {
 
                             </>
                         ))
-
                     }
                 </LegendContainer>
             </SideLeft>
