@@ -43,6 +43,7 @@ export const ContentComponentsFinals = styled.div`
     align-items: center;
 
     @media(max-width: 780px){
+        height: auto;
         flex-direction: column;
     }
 `;

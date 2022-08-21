@@ -31,7 +31,7 @@ export const Container = styled.div`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    height: 300px;
+    height: 400px;
   }
   animation: ${animate} .5s;
 `;
@@ -97,4 +97,8 @@ export const SideRight = styled.main`
     display: flex;
     justify-content: center;
     padding-top: 35px;
+
+    @media(max-width: 480px) {
+        height: auto;
+    }
 `;
